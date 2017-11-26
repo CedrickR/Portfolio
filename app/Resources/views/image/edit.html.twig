@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% form_theme edit_form  'bootstrap_3_horizontal_layout.html.twig' %}
+{% block body %}
+  <section class="bg-primary" id="edit">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 text-center">
+                    <h2 class="margin-top-0 text-primary">Editer une image</h2>
+                    <br>
+                    {{ form_start(edit_form) }}
+                    {{ form_widget(edit_form) }}
+                        <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-default">Sauvegarder</button>
+                        </div>
+                    </div>
+                {{ form_end(edit_form) }}
+                <a href="{{ path('image_index') }}">Retour à la liste</a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

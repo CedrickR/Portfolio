@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="bg-primary" id="liste">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 text-center">
+                    <h2 class="margin-top-0 text-primary">Liste des images</h2>
+                    <br>
+                    <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Titre</th>
+                                    <th>Legende</th>
+                                    <th>Fichier</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for image in images %}
+                            
+                                <tr>
+                                    <td><a href="{{ path('image_show', { 'id': image.id }) }}">{{ image.id }}</a></td>
+                                    <td>{{ image.titre }}</td>
+                                    <td>{{ image.legende }}</td>
+                                    <td><img class="img-responsive" src="/uploads/images/{{ image.fichier }}" alt="Short alt text"></td>
+                                    <td>
+                                        <ul>
+                                            <li>
+                                                <a href="{{ path('image_show', { 'id': image.id }) }}">show</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ path('image_edit', { 'id': image.id }) }}">edit</a>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    <a href="{{ path('image_new') }}" class="btn btn-default btn-xl page-scroll">Ajouter une nouvelle image</a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

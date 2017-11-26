@@ -18,4 +18,15 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
         ));
     }
+
+    /**
+     * @Route("/blog", name="blog")
+     */
+    public function blogAction(Request $request)
+    {
+        // replace this example code with whatever you need
+        return $this->render('default/blog.html.twig', array(
+            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
+        ));
+    }
 }
